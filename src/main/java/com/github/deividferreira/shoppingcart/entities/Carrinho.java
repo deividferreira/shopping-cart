@@ -53,7 +53,7 @@ public class Carrinho {
 		BigDecimal subTotal = getSubtotal();
 		BigDecimal valorTotalDeItensComDescontoAcima10Pecas = getTotalItensComDesconto();
 		BigDecimal valorComDescontoProgressivo = DescontoProgressivo
-				.build(subTotal)
+				.getInstance(subTotal)
 				.aplicar(valorTotalDeItensComDescontoAcima10Pecas);
 
 		return aplicarCupomDesconto(valorComDescontoProgressivo);

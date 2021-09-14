@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+import com.github.deividferreira.shoppingcart.dto.cupons.CupomDTO;
 import com.github.deividferreira.shoppingcart.entities.Carrinho;
-import com.github.deividferreira.shoppingcart.entities.Cupom;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +15,7 @@ import lombok.Getter;
 public class CarrinhoDTO {
 
 	private Long id;
-	private Cupom cupomDesconto;
+	private CupomDTO cupomDesconto;
 	private List<ItemCarrinhoDTO> itens;
 	private BigDecimal total;
 	private BigDecimal subtotal;
@@ -30,9 +30,11 @@ public class CarrinhoDTO {
 		}
 	}
 
-	public static CarrinhoDTO toDTO(Carrinho carrinho) {
-		return new CarrinhoDTO(carrinho.getId(), carrinho.getCupom(),
-				ItemCarrinhoDTO.toDTO(carrinho.getItens()), carrinho.getTotal(),
+	public static CarrinhoDTO toDTO(final Carrinho carrinho) {
+		return new CarrinhoDTO(carrinho.getId(),
+				CupomDTO.toDTO(carrinho.getCupom()),
+				ItemCarrinhoDTO.toDTO(carrinho.getItens()),
+				carrinho.getTotal(),
 				carrinho.getSubtotal());
 	}
 

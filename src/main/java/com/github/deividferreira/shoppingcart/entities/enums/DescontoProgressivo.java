@@ -44,7 +44,7 @@ public enum DescontoProgressivo {
 		this.valor = valor;
 	}
 
-	public static DescontoProgressivo build(BigDecimal valorTotal) {
+	public static DescontoProgressivo getInstance(BigDecimal valorTotal) {
 		if (valorTotal.compareTo(CINCO.valor) >= 0
 				&& valorTotal.compareTo(SETE.valor) < 0) {
 
